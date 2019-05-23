@@ -26,11 +26,7 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center" id="urnik-logo"> <!-- top centred logo: absolute -->
-        <i class="large material-icons hide-on-med-and-down">schedule</i>
-        {{ naslov|default:izbrani_semester.ime }}
-      </a>
-
+      
       <!-- left menu -->
       <a href="#" id="menu-button" data-target="side-menu" class="sidenav-trigger show-on-large">
         <i class="material-icons">menu</i><span class="hide-on-med-and-down">Meni</span>
@@ -58,15 +54,43 @@
       {% endif %}
 
       <!-- middle search: Preserve the order: left, right first, then middle -->
-      <div id="search-wrapper">
-        <form>
-          <div class="input-field">
-            <input id="search" type="search" required placeholder="Išči..." class="autocomplete" title="search">
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
+      <div>
+        <div id="search-wrapper" class="left" style="width:35%">
+
+          <a href="#!" class="brand-logo center" id="urnik-logo"> <!-- top centred logo: absolute -->
+            <i class="large material-icons hide-on-med-and-down">schedule</i>
+            {{ naslov|default:izbrani_semester.ime }}
+          </a>
+
+          <div>
+            <form>
+              <div class="input-field">
+                <input id="search" type="search" required placeholder="Išči..." class="autocomplete" title="search">
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
+
+      
+      <div id="week-wrapper" class="right" style="width:35%">
+          <div>
+              <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger btn' href='#' data-target='dropdown1' 
+              style="width: 100%; color: white; background-color: #333">Teden
+              <i class="material-icons right" style="height: 36px; line-height: 36px">expand_more</i>
+            </a>
+
+            <ul id='dropdown1' class='dropdown-content' style="width: 100%">
+              <li><a href="#!">1.teden: 18.2.2019 - 24.2.2019</a></li>
+              <li><a href="#!">2.teden: 25.2.2019 - 3.3.2019</a></li>
+              <li><a href="#!">3.teden: 4.3.2019 - 10.3.2019</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
+
     </div> <!-- nav wrapper -->
     {% if user.is_authenticated %}
       <ul id="user-dropdown" class="dropdown-content">
