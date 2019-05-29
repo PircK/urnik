@@ -208,30 +208,20 @@ nav {
     color: #039be5;
 }
 
-#week-wrapper {
-    padding: 0px 15px 5px 0px;
+#week-dropdown {
+    position: relative;
 }
-#week-wrapper input[type="week"] {
-    padding-right: 2.5rem;
-    width: calc(100% - 2.5rem);
-    height: 64px;
-    color: #fff;
-    margin-bottom: 0px;
-    text-align: right;
+#week-dropdown .btn {
+    width: 90%;
+    color: white;
+    background-color: #333;
 }
-
-#week-wrapper input[type="week"]:focus {
-    border-bottom: 1px solid #039be5;
-    color: #333;
-    box-shadow: 0 1px 0 0 #039be5;
+#week-dropdown i.material-icons {
+    height: 36px;
+    line-height: 36px;
 }
-@media only screen and (max-width: 600px) {
-    #week-wrapper input[type="week"]::placeholder {
-        color: transparent;
-    }
-    #week-wrapper input[type="week"] {
-        height: 56px;
-    }
+#week {
+    width: 90%;
 }
 
 #admin-dropdown .dropdown-button {
