@@ -173,6 +173,8 @@ def urnik(request, srecanja, naslov, barve=None, teden=None, rezervacije=None):
     legenda = barve
     if teden is not None:
         teden = teden_int_v_datetime(teden)
+    semester = izbrani_semester(request)
+    tedni = semester.vsi_tedni()
     if barve is None:
         barve = Predmet.objects.filter(srecanja__in=srecanja).distinct()
     if request.user.is_staff and request.session.get('urejanje', False):
@@ -199,6 +201,7 @@ def urnik(request, srecanja, naslov, barve=None, teden=None, rezervacije=None):
             'barve': legenda,
             'teden': teden,
             'rezervacije': rezervacije,
+            'tedni': tedni,
         })
 
 

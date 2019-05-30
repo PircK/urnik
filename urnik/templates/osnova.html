@@ -1,4 +1,5 @@
 {% load static %}
+{% load tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,10 +89,10 @@
               <i href='#!' class="material-icons right">expand_more</i>
             </a>
 
-            <ul id='week' class='dropdown-content' style="width: 100%">
-              <li><a href="#!">1.teden: 18.2.2019 - 24.2.2019</a></li>
-              <li><a href="#!">2.teden: 25.2.2019 - 3.3.2019</a></li>
-              <li><a href="#!">3.teden: 4.3.2019 - 10.3.2019</a></li>
+            <ul id='week' class='dropdown-content'>
+              {% for ted in tedni %}
+              <li><a href="{{ted.0 | fmt_teden_link}}">{{ ted.0|fmt_teden}}</a></li>
+              {% endfor %}
             </ul>
           </div>
         </div>

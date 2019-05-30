@@ -82,6 +82,12 @@ def fmt_teden(start_date):
     end_date = start_date + timedelta(days=6)
     return mark_safe(defaultfilters.date(start_date, "j. b") + " &ndash; " + defaultfilters.date(end_date, "j. b Y"))
 
+@register.filter(is_safe=True)
+def fmt_teden_link(start_date):
+    if isinstance(start_date, str):
+        start_date = parse_date(start_date)
+    return mark_safe(f"{start_date.year}-{start_date.month}-{start_date.day}")
+
 
 DNEVI_TOZILNIK = ["ponedeljek", "torek", "sredo", "četrtek", "petek", "soboto", "nedeljo"]
 @register.filter()

@@ -242,6 +242,14 @@ class Semester(models.Model):
             tedni.add(teden_dneva(self.do))
         return tedni
 
+    def vsi_tedni(self):
+        razlika = datetime.timedelta(weeks=1)
+        tedni = set()
+        dan = self.od
+        while dan < self.do:
+            tedni.add(teden_dneva(dan))
+            dan += razlika
+        return list(sorted(tedni))
 
 class SrecanjeQuerySet(models.QuerySet):
 
